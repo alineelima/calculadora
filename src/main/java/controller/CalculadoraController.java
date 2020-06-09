@@ -27,7 +27,11 @@ public class CalculadoraController extends HttpServlet{
 
 			System.out.println("a = " + a + operacao + "b = " + b);
 			resp.setContentType("text/html;charset=UTF-8");
-        	resp.getWriter().write("Success Data");
+			resp.getWriter().write("Success Data");
+			
+			if( operacao.equals("/") && b.equals("0") ){
+				
+			}
 
 		} catch (Exception e) {
 			System.out.println("Erro na API");

@@ -24,21 +24,21 @@ and open the template in the editor.
 
             <div class="row">
                 <input type="button" onclick="limpar()" value="Del" class="global red">
-                <input type="button" onclick="operacaoCalc()" value="&radic;" id="opr" class="global">
-                <input type="button" onclick="operacaoCalc('^')" value="^" id="opr" class="global">
-                <input type="button" onclick="operacaoCalc('+')" value="+" id="opr" class="global">
+                <input type="button" onclick="operacaoCalc('raiz')" value="&radic;" id="opr" class="global" disabled=true>
+                <input type="button" onclick="operacaoCalc('^')" value="^" id="opr" class="global" disabled=true>
+                <input type="button" onclick="operacaoCalc('+')" value="+" id="opr" class="global" disabled=true>
             </div>
             <div class="row">
                 <input type="button" onclick="numero('7')" value="7" class="global">
                 <input type="button" onclick="numero('8')" value="8" class="global">
                 <input type="button" onclick="numero('9')" value="9" class="global">
-                <input type="button" onclick="operacaoCalc('/')" value="/" id="opr" class="global">
+                <input type="button" onclick="operacaoCalc('/')" value="/" id="opr" class="global" disabled=true>
             </div>
             <div class="row">
                 <input type="button" onclick="numero('4')" value="4" class="global">
                 <input type="button" onclick="numero('5')" value="5" class="global">
                 <input type="button" onclick="numero('6')" value="6" class="global">
-                <input type="button" onclick="operacaoCalc('x')" value="X" id="opr" class="global">
+                <input type="button" onclick="operacaoCalc('x')" value="X" id="opr" class="global" disabled=true>
             </div>
             <div class="row">
                 <input type="button" onclick="numero('1')" value="1" class="global">
