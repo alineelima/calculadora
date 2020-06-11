@@ -9,19 +9,31 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Calculadora Online</title>
+        <title>Historico</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="resources/css/historico.css"/>
+        <script src="resources/js/jquery-3.3.1.min.js"></script>
+        <script src="resources/js/historico.js"></script>
     </head>
     <body>
-		<div class="index-container">
-            <div class="content">
-                <section>
-                    <h1>Bem vindo!</h1>
-                </section>  
-                <a class="back-link" href="/calculadora/login">
-                    Acessar a calculadora
-                </a>
-            </div>
+
+        <h1>Historico</h1>
+
+        <div class="container">
+            <table id="t01">
+                <tr>
+                <td>Jill realizou a operacao 2+2</td>
+                </tr>
+                <tr>
+                <td>Eve realizou a operacao 3x4</td>
+                </tr>
+                <tr>
+                <td>John realizou a operacao 9/3</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <button onclick="calcular()" >Voltar para calculadora</button>
         </div>
     </body>
 </html>

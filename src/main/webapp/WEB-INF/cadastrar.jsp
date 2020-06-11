@@ -9,20 +9,20 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Login</title>
+        <title>Cadastro</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="resources/css/login.css"/>
+        <link rel="stylesheet" href="resources/css/cadastro.css"/>
         <script src="resources/js/jquery-3.3.1.min.js"></script>
-        <script src="resources/js/login.js"></script>
+        <script src="resources/js/cadastrar.js"></script>
     </head>
     <body>
-        <h1>Login</h1>
+        <h1>Cadastro</h1>
 
     <form action="" method="post">
-        <div class="imgcontainer">
-            <img src="resources/images/login-icon.png" alt="Avatar" class="avatar">
+        <div class="container">
+            <label class="content" for="uname"><b>Nome</b></label>
+            <input type="text" placeholder="Digite seu nome" name="nome" id="nome" required>
         </div>
-
         <div class="container">
             <label class="content" for="uname"><b>Email</b></label>
             <input type="text" placeholder="Digite seu email" name="email" id="email" required>
@@ -33,10 +33,7 @@ and open the template in the editor.
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
-            <button type="submit" onclick="login($('#email').val(), $('#senha').val())">Entrar</button>
-            <span class="psw"> 
-                <a href="/calculadora/cadastrar">Cadastre-se</a>
-            </span>
+            <button type="submit" onclick="cadastrar($('#nome').val(), $('#email').val(), $('#senha').val())">Salvar</button>
         </div>
     </form>
 

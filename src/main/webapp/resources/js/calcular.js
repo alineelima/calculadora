@@ -2,7 +2,7 @@ var a;
 var b = 0;
 var operacao = null;
 
-//colcoar logica para calcular numero negativo, checar se a != null e setar a como null no inicio!!
+//ver logica pra quando é raiz de um numero e ver como receber o resultado do projeto do back
 
 function display(valor){
     document.getElementById('display').value += valor;
@@ -10,28 +10,49 @@ function display(valor){
 
 function numero(num){
     display(num);
-    console.log(operacao);
+
+    //console.log(operacao);
     if(operacao != null){
-        console.log('entrei no if');
+        //console.log('entrei no if');
         b += num;
-        document.querySelector('[id="result"]').disabled = false
+        //habilita o = quando ja tem a, b e op
+        document.querySelector('[id="result"]').disabled = false;
     }
+    disableOp(false);
+    //desativa raiz quando o user digita um numero
+    document.querySelector('[id="rad"]').disabled = true;
 };
 
 function operacaoCalc(op){
-    //verifica se o display está vazio e se o operador é - indicando que o numero é negtivo
     var check = document.getElementById('display').value;
+
+    //verifica se o display está vazio e se o operador é - indicando que o numero é negtivo
     if(check == null || check == "" && op == "-"){
-        console.log('display esta vazio');
+        //console.log('display esta vazio');
         display(op);
-        disableOp(false);
+        //desabilita o -
+        document.querySelector('[id="subtracao"]').disabled = true;
+        //desativa raiz
+        document.querySelector('[id="rad"]').disabled = true;
     } 
-    else if(operacao == null){
+    else if(operacao == null && op != "raiz"){
         a = document.getElementById('display').value;
         operacao = op;
         display(op);
-        //disableOp(true);
-    } 
+        disableOp(true);
+        //desativa raiz
+        document.querySelector('[id="rad"]').disabled = true;
+        //permite que o b seja um numero negativo
+        document.querySelector('[id="subtracao"]').disabled = false;
+    }
+    else if(op == "raiz"){
+        a = 0;
+        operacao = op;
+        display(op);
+        disableOp(true);
+        //desativa raiz
+        document.querySelector('[id="rad"]').disabled = true;
+    }
     else{
         numero(op);
     }    
@@ -42,7 +63,10 @@ function limpar(){
     a = "";
     b = 0;
     operacao = null;
-    disableOp(false);
+    disableOp(true);
+    document.querySelector('[id="subtracao"]').disabled = false;
+    //hailita raiz
+    document.querySelector('[id="rad"]').disabled = false;
 }
 
 function isFloat(ponto){
@@ -65,19 +89,25 @@ function disableOp(val){
 }
 
 function resultado(){
-     alert(a + operacao);
-     console.log(b);
+     //alert(a + operacao);
+     //console.log(b);
 
     $.ajax({
         url: '/calculadora/calcular',
         method: 'POST',
         data:{a:a, b:b, operacao:operacao},
         success: function(response) {
-            console.log("success message");
+            console.log(response);
+            display("=");
+            display(response);
             //window.location.href = "http://localhost:8080/calculadora/calcular"
           },
           error: function (response) {
-            alert('Erro ao realizar login. Verifique email e senha e tente novamente');
+            alert(response);
           }
     });
+}
+
+function historico(){
+    window.location.href = "http://localhost:8080/calculadora/historico";
 }

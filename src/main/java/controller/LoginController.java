@@ -14,7 +14,7 @@ public class LoginController extends HttpServlet{
 		try {
 			req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, res);
 		} catch (Exception e) {
-			System.out.println("Erro na API");
+			System.out.println(e);
 		}
 	}
 
@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet{
 			}
 
 		} catch (Exception e) {
-			System.out.println("Erro na API");
+			System.out.println(e);
 		}
 	}
 }

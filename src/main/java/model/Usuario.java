@@ -1,4 +1,4 @@
-
+package model;
 
 //@Entity
 //@Table(name = "usuario")
