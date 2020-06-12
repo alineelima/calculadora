@@ -11,28 +11,20 @@ function display(valor){
 function numero(num){
     display(num);
 
-    //console.log(operacao);
     if(operacao != null){
-        //console.log('entrei no if');
         b += num;
-        //habilita o = quando ja tem a, b e op
         document.querySelector('[id="result"]').disabled = false;
     }
     disableOp(false);
-    //desativa raiz quando o user digita um numero
     document.querySelector('[id="rad"]').disabled = true;
 };
 
 function operacaoCalc(op){
     var check = document.getElementById('display').value;
 
-    //verifica se o display está vazio e se o operador é - indicando que o numero é negtivo
     if(check == null || check == "" && op == "-"){
-        //console.log('display esta vazio');
         display(op);
-        //desabilita o -
         document.querySelector('[id="subtracao"]').disabled = true;
-        //desativa raiz
         document.querySelector('[id="rad"]').disabled = true;
     } 
     else if(operacao == null && op != "raiz"){
@@ -40,9 +32,7 @@ function operacaoCalc(op){
         operacao = op;
         display(op);
         disableOp(true);
-        //desativa raiz
         document.querySelector('[id="rad"]').disabled = true;
-        //permite que o b seja um numero negativo
         document.querySelector('[id="subtracao"]').disabled = false;
     }
     else if(op == "raiz"){
@@ -50,7 +40,6 @@ function operacaoCalc(op){
         operacao = op;
         display(op);
         disableOp(true);
-        //desativa raiz
         document.querySelector('[id="rad"]').disabled = true;
     }
     else{
@@ -65,7 +54,6 @@ function limpar(){
     operacao = null;
     disableOp(true);
     document.querySelector('[id="subtracao"]').disabled = false;
-    //hailita raiz
     document.querySelector('[id="rad"]').disabled = false;
 }
 
@@ -89,9 +77,6 @@ function disableOp(val){
 }
 
 function resultado(){
-     //alert(a + operacao);
-     //console.log(b);
-
     $.ajax({
         url: '/calculadora/calcular',
         method: 'POST',
