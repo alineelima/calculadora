@@ -1,4 +1,4 @@
-#h2Calculadora Online</h2>
+#h2 Calculadora Online</h2>
 Projeto da disciplina "Laboratório de Engenharia de Software", consiste em construir uma calculadora web na linguagem JAVA onde todas as contas devem ser feitas no back end, que recebe via requisição AJAX os 2 operandos e a a operação a ser efetuada.
 
 <h2>Telas</h2>
