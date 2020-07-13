@@ -9,10 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
     
-    @Override
+    /**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	public void doGet(HttpServletRequest req,HttpServletResponse res) {
 		try {
-			req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, res);
+			req.getRequestDispatcher("/view/login.jsp").forward(req, res);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -32,7 +37,7 @@ public class LoginController extends HttpServlet{
 
 			} else {
 				req.setAttribute("message", "Erro ao realizar login. Verifique email e senha e tente novamente");
-				req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+				req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
 			}
 
 		} catch (Exception e) {

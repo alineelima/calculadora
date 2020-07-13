@@ -1,19 +1,23 @@
 package model;
 
-//@Entity
-//@Table(name = "historico")
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "historico")
 public class Historico {
 
-    //@Column(name = "nome", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    //@Column(name = "num1", nullable = false)
+    @Column(name = "num1", nullable = false)
     private String num1;
 
-    //@Column(name = "num2", nullable = false)
+    @Column(name = "num2", nullable = false)
     private String num2;
 
-    //@Column(name = "operacao", nullable = false)
+    @Column(name = "operacao", nullable = false)
     private String operacao;
 
     public void setNome(String nome) {

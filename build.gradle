@@ -5,10 +5,18 @@ plugins {
 }
 
 dependencies {
+
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'javax.servlet:jstl:1.2'
+    //compile group: 'com.oracle', name: 'ojdbc7', version: '12.1.0.2'
+
+    implementation 'com.google.guava:guava:26.0-jre'
+    //implementation 'mysql:mysql-connector-java:8.0.20'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.2.0'
+    implementation 'org.hibernate:hibernate-core:5.3.6.Final'
+
     testCompile 'javax.servlet:javax.servlet-api:3.1.0'
-    
+
     //Mockito framework
     testCompile "org.mockito:mockito-core:2.+"   
     //JUnit 5 framework
@@ -18,6 +26,9 @@ dependencies {
 
 
 repositories {
+    //maven {
+    //    url "http://nexus.saas.hand-china.com/content/repositories/rdc/"
+    //}
    
     jcenter()
 }

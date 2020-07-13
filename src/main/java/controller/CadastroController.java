@@ -5,15 +5,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UsuarioDAO;
 import model.Usuario;
 
 @WebServlet("/cadastrar")
 public class CadastroController extends HttpServlet{
+
+	 /**
+	*
+	*/
+	private static final long serialVersionUID = 1L;
+	UsuarioDAO usuarioDao;
     
     @Override
 	public void doGet(HttpServletRequest req,HttpServletResponse res) {
 		try{
-			req.getRequestDispatcher("/WEB-INF/cadastrar.jsp").forward(req, res);
+			req.getRequestDispatcher("/view/cadastrar.jsp").forward(req, res);
 		} catch (Exception e){
 			System.out.println(e);
 		}
@@ -30,9 +37,14 @@ public class CadastroController extends HttpServlet{
 			usuario.setNome(nome);
 			usuario.setEmail(email);
 			usuario.setSenha(senha);
+
+			System.out.println(usuario.getNome());
 			
 			//verifica se o email ja existe no banco
-				//salvar no banco
+			System.out.println("antes do dao create user");
+			usuarioDao.createUser(usuario);
+			System.out.println("dps do dao creste user");
+
 			resp.setContentType("text/html;charset=UTF-8");
         	resp.getWriter().write("Success Data");
 				

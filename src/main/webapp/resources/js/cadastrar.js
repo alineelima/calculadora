@@ -4,7 +4,7 @@ function cadastrar(nome, email, senha){
         method: 'POST',
         data:{nome:nome, email:email, senha:senha},
         success: function(response) {
-            console.log("sucessss");
+            console.log(response);
             window.location.href = "http://localhost:8080/calculadora/login"
           },
           error: function (response) {

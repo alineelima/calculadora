@@ -12,9 +12,9 @@ public class HistoricoController extends HttpServlet{
     @Override
 	public void doGet(HttpServletRequest req,HttpServletResponse res) {
 		try{
-			req.getRequestDispatcher("/WEB-INF/historico.jsp").forward(req, res);
+			req.getRequestDispatcher("/view/historico.jsp").forward(req, res);
 		} catch (Exception e){
-			System.out.println("Erro");
+			System.out.println(e);
 		}
 	}
 }

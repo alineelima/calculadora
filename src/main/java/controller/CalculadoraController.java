@@ -13,9 +13,9 @@ public class CalculadoraController extends HttpServlet{
     @Override
 	public void doGet(HttpServletRequest req,HttpServletResponse res) {
 		try{
-			req.getRequestDispatcher("/WEB-INF/calcular.jsp").forward(req, res);
+			req.getRequestDispatcher("/view/calcular.jsp").forward(req, res);
 		} catch (Exception e){
-			System.out.println("Erro");
+			System.out.println(e);
 		}
 	}
 
@@ -63,7 +63,7 @@ public class CalculadoraController extends HttpServlet{
 				resultado = Math.pow(num1, num2);
 			}
 
-			System.out.println("REsultado: " + resultado);
+			System.out.println("Resultado: " + resultado);
 
 			resp.setContentType("text/html;charset=UTF-8");
 			resp.getWriter().write(resultado.toString());

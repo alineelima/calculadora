@@ -1,32 +1,23 @@
 package model;
 
-//@Entity
-//@Table(name = "usuario")
-public class Usuario {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-    //@Id
-    //@GeneratedValue
-    private Long id;
+@Entity
+@Table(name = "usuario")
+public class Usuario {
     
-    //@Column(name = "nome", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
     
-    //@Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
     
-    //@Column(name = "senha", nullable = false)
+    @Column(name = "senha", nullable = false)
     private String senha;
-    
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setNome(String nome) {
+    public void setNome(final String nome) {
         this.nome = nome;
     }
 
@@ -34,7 +25,7 @@ public class Usuario {
         return this.nome;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -42,7 +33,7 @@ public class Usuario {
         return this.email;
     }
 
-    public void setSenha(String senha) {
+    public void setSenha(final String senha) {
         this.senha = senha;
     }
 
