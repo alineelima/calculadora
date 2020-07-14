@@ -15,7 +15,6 @@ public class CadastroController extends HttpServlet{
 	*
 	*/
 	private static final long serialVersionUID = 1L;
-	UsuarioDAO usuarioDao;
     
     @Override
 	public void doGet(HttpServletRequest req,HttpServletResponse res) {
@@ -42,6 +41,7 @@ public class CadastroController extends HttpServlet{
 			
 			//verifica se o email ja existe no banco
 			System.out.println("antes do dao create user");
+			UsuarioDAO usuarioDao = new UsuarioDAO();
 			usuarioDao.createUser(usuario);
 			System.out.println("dps do dao creste user");
 

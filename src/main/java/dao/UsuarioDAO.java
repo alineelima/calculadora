@@ -13,7 +13,7 @@ public class UsuarioDAO {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
     EntityManager em = emf.createEntityManager();
     
-    public void createUser(final Usuario user) {
+    public void createUser(Usuario user) {
         System.out.println("Entrou no createUser");
         System.out.flush();
         
