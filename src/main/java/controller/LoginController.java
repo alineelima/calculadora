@@ -4,7 +4,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import dao.UsuarioDAO;
+import model.Usuario;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
@@ -13,6 +14,8 @@ public class LoginController extends HttpServlet{
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
+
+	
 
 	@Override
 	public void doGet(HttpServletRequest req,HttpServletResponse res) {
@@ -29,8 +32,11 @@ public class LoginController extends HttpServlet{
 			String email = req.getParameter("email");
 			String senha = req.getParameter("senha");
 
+			UsuarioDAO usuarioDao = new UsuarioDAO();
+			boolean a = usuarioDao.findUserByEmail(email,senha);
+
 			if( email != null && senha != null) {
-				System.out.println(email);
+				//System.out.println(email);
 				//req.getRequestDispatcher("/WEB-INF/calcular.jsp").forward(req, resp);
 				resp.setContentType("text/html;charset=UTF-8");
         		resp.getWriter().write("Success Data");

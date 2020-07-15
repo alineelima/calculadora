@@ -3,21 +3,22 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Id;
 
-@Entity
-@Table(name = "historico")
+@Entity(name = "historico")
 public class Historico {
-
-    @Column(name = "nome", nullable = false)
+    
+    @Id
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "num1", nullable = false)
+    @Column(name = "num1")
     private String num1;
 
-    @Column(name = "num2", nullable = false)
+    @Column(name = "num2")
     private String num2;
 
-    @Column(name = "operacao", nullable = false)
+    @Column(name = "operacao")
     private String operacao;
 
     public void setNome(String nome) {

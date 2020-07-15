@@ -3,9 +3,7 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import org.hibernate.HibernateException;
-
 import model.Usuario;
 
 public class UsuarioDAO {
@@ -15,27 +13,22 @@ public class UsuarioDAO {
     
     public void createUser(Usuario user) {
         System.out.println("Entrou no createUser");
-        System.out.flush();
         
-        try {
-            System.out.println("Entou no create User");
-            // inicia uma transação com o banco de dados
-            System.out.println("begin");
-            em.getTransaction().begin();
-            // salva os dados do usuário
-            System.out.println("persist");
-            em.persist(user);
-            // finalizando a transação
-            System.out.println("commit");
-            em.getTransaction().commit();
-            
-        } catch (final HibernateException e) {
-            System.out.println("EU DISSE ALINE LIMA DE PAULA");
-            System.err.println(e);
-            System.out.println("VIU LININHA");
-        } finally {
-            em.close();
-            emf.close();
-        }
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+
+        System.out.println("fim usuario dao");
+    }
+
+    public boolean findUserByEmail(String email, String password){
+        em.getTransaction().begin();
+        Usuario user = em.find(Usuario.class, email);
+        System.out.println(user.getNome());
+        em.close();
+        emf.close();
+        return true;
     }
 }

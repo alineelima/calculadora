@@ -3,18 +3,19 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Id;
 
-@Entity
-@Table(name = "usuario")
+@Entity(name = "usuario")
 public class Usuario {
     
-    @Column(name = "nome", nullable = false)
+    @Id
+    @Column(name = "nome")
     private String nome;
     
-    @Column(name = "email", nullable = false)
+    @Column(name = "email")
     private String email;
     
-    @Column(name = "senha", nullable = false)
+    @Column(name = "senha")
     private String senha;
 
     public void setNome(final String nome) {
