@@ -76,6 +76,11 @@ function disableOp(val){
     
 }
 
+function result(valor){
+    document.getElementById('display').value += valor;
+    limpar();
+}
+
 function resultado(){
     $.ajax({
         url: '/calculadora/calcular',
@@ -84,7 +89,7 @@ function resultado(){
         success: function(response) {
             console.log(response);
             display("=");
-            display(response);
+            result(response);
             //window.location.href = "http://localhost:8080/calculadora/calcular"
           },
           error: function (response) {

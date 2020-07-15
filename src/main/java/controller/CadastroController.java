@@ -36,19 +36,12 @@ public class CadastroController extends HttpServlet{
 			usuario.setNome(nome);
 			usuario.setEmail(email);
 			usuario.setSenha(senha);
-
-			System.out.println(usuario.getNome());
 			
-			//verifica se o email ja existe no banco
-			System.out.println("antes do dao create user");
 			UsuarioDAO usuarioDao = new UsuarioDAO();
 			usuarioDao.createUser(usuario);
-			System.out.println("dps do dao creste user");
 
 			resp.setContentType("text/html;charset=UTF-8");
         	resp.getWriter().write("Success Data");
-				
-				//erro
 
 		} catch (Exception e) {
 			System.out.println(e);

@@ -4,6 +4,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import dao.HistoricoDAO;
+import model.Historico;
 
 
 
@@ -26,13 +29,22 @@ public class CalculadoraController extends HttpServlet{
 			String b = req.getParameter("b");
 			String operacao = req.getParameter("operacao");
 
+			String nome = "";
+			HttpSession session = req.getSession(false);  
+            if((session!=null) && ((String)session.getAttribute("username") != null)){   
+                nome = (String)session.getAttribute("username");
+			}
+			
 			b = b.substring(1, b.length());
+			Historico historico = new Historico();
+			historico.setNome(nome);
+			historico.setNum1(a);
+			historico.setNum2(b);
+			historico.setOperacao(operacao);
+			
 			Double num1 = Double.parseDouble(a);
 			Double num2 = Double.parseDouble(b);
 			Double resultado = 0.0;
-
-			//System.out.println("b convertido = " + teste);
-			//System.out.println("a = " + a + operacao + "b = " + b);
 
 			if(operacao.equals("+")){
 				resultado = num1 + num2;
@@ -56,6 +68,7 @@ public class CalculadoraController extends HttpServlet{
 					String msg = "Nao e possivel resolver a raiz de um numero negativo considerando apenas numeros reais";
 				}
 				else{
+					historico.setNum1("2");
 					resultado = Math.sqrt(num2);
 				}
 			}
@@ -65,11 +78,12 @@ public class CalculadoraController extends HttpServlet{
 
 			System.out.println("Resultado: " + resultado);
 
+			HistoricoDAO historicoDao = new HistoricoDAO();
+			historicoDao.saveHistory(historico);
+			
 			resp.setContentType("text/html;charset=UTF-8");
 			resp.getWriter().write(resultado.toString());
 
-
-			
 		} catch (Exception e) {
 			System.out.println(e);
 		}

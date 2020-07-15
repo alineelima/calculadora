@@ -1,8 +1,10 @@
 package dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import model.Usuario;
 
@@ -11,11 +13,11 @@ public class UsuarioDAO {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
     EntityManager em = emf.createEntityManager();
     
-    public void createUser(Usuario user) {
+    public void createUser(Usuario usuario) {
         System.out.println("Entrou no createUser");
         
         em.getTransaction().begin();
-        em.persist(user);
+        em.persist(usuario);
         em.getTransaction().commit();
         em.close();
         emf.close();
@@ -23,12 +25,24 @@ public class UsuarioDAO {
         System.out.println("fim usuario dao");
     }
 
-    public boolean findUserByEmail(String email, String password){
-        em.getTransaction().begin();
-        Usuario user = em.find(Usuario.class, email);
-        System.out.println(user.getNome());
-        em.close();
-        emf.close();
-        return true;
+    public String findUserByEmail(String email, String password){
+        System.out.println("entrou no find by email");
+
+        Query query = em.createQuery("FROM usuario u where email=:email"); 
+        query.setParameter("email", email);
+        List<Usuario> usuarios = query.getResultList();
+        
+        if (usuarios.isEmpty()){
+            System.out.println("Lista vazia!");
+        }
+        else{
+            for (Usuario usuario: usuarios){
+                if (usuario.getSenha().equals(password)){
+                     System.out.println(usuario.getNome());
+                     return usuario.getNome();
+                }
+            }
+        }
+        return "";
     }
 }

@@ -55,6 +55,7 @@ and open the template in the editor.
 
         <div>
             <button onclick="historico()" >Historico</button>
+            <button onclick="historico()" >Sair</button>
         </div>
     </body>
 </html>

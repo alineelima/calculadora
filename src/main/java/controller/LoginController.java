@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import dao.UsuarioDAO;
 import model.Usuario;
 
@@ -33,11 +34,11 @@ public class LoginController extends HttpServlet{
 			String senha = req.getParameter("senha");
 
 			UsuarioDAO usuarioDao = new UsuarioDAO();
-			boolean a = usuarioDao.findUserByEmail(email,senha);
+			String nome = usuarioDao.findUserByEmail(email,senha);
 
-			if( email != null && senha != null) {
-				//System.out.println(email);
-				//req.getRequestDispatcher("/WEB-INF/calcular.jsp").forward(req, resp);
+			if(nome != null && !nome.equals("")) {
+				HttpSession session = req.getSession();  
+				session.setAttribute("username", nome);
 				resp.setContentType("text/html;charset=UTF-8");
         		resp.getWriter().write("Success Data");
 
