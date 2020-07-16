@@ -5,7 +5,12 @@ Projeto da disciplina "Laboratório de Engenharia de Software", consiste em cons
 
 Abra o terminal, inicie o MariaDB para executar os scripts no arquivo sql.txt dentro da pasta database, basta copiar e colar no terminal na ordem que estão no arquivo. Depois disso, todas as tabelas serão criadas no banco de dados.
 
-<h2>EStrutura do repositório</h2>
+<h2>Procedmento de build e execução</h2>
+Abra o prompt de comando na pasta raiz onde está localizado o projeto; execute o comando gradle apprun para executar a aplicação. A url da aplicação que será gerada, estando disponível na porta 808 com a seguinta url: localhost:8080/calculadora.
+Para fazer o build da aplicação, utilize o comando gradle build
+Para mudar a senha do banco de dados, vá ao diretório src/main/java/resources/META-INF e troque a senha de acesso ao banco localizada na linha 19 do arquivo persistence.xml
+
+<h2>Estrutura do repositório</h2>
 <ul>
     <li>build.gradle: arquivo que contêm toda as dependências do projeto;</li>
     <li>src/main/java/controllers: diretório onde se encontra os servlets que fazem o mapeamento dos endpoints do sistema;</li>
