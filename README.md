@@ -20,7 +20,7 @@ Para mudar a senha do banco de dados, vá ao diretório src/main/java/resources/
     <li>src/main/webapp/view: contêm todas as páginas web do sistema em jsp;</li>
     <li>src/main/webapp/resources: diretório com as pastas css, images e js; </li>
     <li>src/main/webapp/resources/css: arquivos para adicionar estilo as páginas jsp;</li>
-    <li>src/main/webapp/resources/images: contem a imagem utilizada no login</li>
+    <li>src/main/webapp/resources/images: contem a imagem utilizada no login;</li>
     <li>src/main/webapp/resources/js: os arquivos com funções javascript, ajax e jquery para manipulação de algumas atividades do sistema.</li>
 </ul>
 
