@@ -45,11 +45,13 @@ public class CalculadoraController extends HttpServlet{
 			historico.setOperacao(operacao);
 			Date d = new Date();
 			String data = DateFormat.getDateTimeInstance().format(d);
+			historico.setHorario(data);
 			
 
 			Double num1 = Double.parseDouble(a);
 			Double num2 = Double.parseDouble(b);
 			Double resultado = 0.0;
+			String msg = null;
 
 			if(operacao.equals("+")){
 				resultado = num1 + num2;
@@ -62,7 +64,7 @@ public class CalculadoraController extends HttpServlet{
 			}
 			else if(operacao.equals("/")){
 				if( operacao.equals("/") && num2 == 0 ){
-					String msg = "Nao e possivel fazer divisao com 0.";
+					msg = "Nao e possivel fazer divisao com 0.";
 				} 
 				else {
 					resultado = num1/num2;
@@ -70,7 +72,7 @@ public class CalculadoraController extends HttpServlet{
 			}
 			else if(operacao.equals("raiz")){
 				if(operacao.equals("raiz") && (num2 < 0)){
-					String msg = "Nao e possivel resolver a raiz de um numero negativo considerando apenas numeros reais";
+					msg = "Nao e possivel resolver a raiz de um numero negativo considerando apenas numeros reais";
 				}
 				else{
 					historico.setNum1("2");
@@ -81,15 +83,28 @@ public class CalculadoraController extends HttpServlet{
 				resultado = Math.pow(num1, num2);
 			}
 
-			System.out.println("Resultado: " + resultado);
+			//System.out.println("Resultado: " + resultado);
 
-			HistoricoDAO historicoDao = new HistoricoDAO();
-			historico.setHorario(data);
-			historico.setResultado(resultado.toString());
-			historicoDao.saveHistory(historico);
 			
-			resp.setContentType("text/html;charset=UTF-8");
-			resp.getWriter().write(resultado.toString());
+
+			if(msg != null){
+				HistoricoDAO historicoDao = new HistoricoDAO();
+				historico.setResultado(msg);
+				historicoDao.saveHistory(historico);
+
+				resp.setContentType("text/html;charset=UTF-8");
+				resp.getWriter().write(msg);
+			}
+			else {
+				HistoricoDAO historicoDao = new HistoricoDAO();
+				historico.setResultado(resultado.toString());
+				historicoDao.saveHistory(historico);
+
+				resp.setContentType("text/html;charset=UTF-8");
+				resp.getWriter().write(resultado.toString());
+			}
+			
+			
 
 		} catch (Exception e) {
 			System.out.println(e);
