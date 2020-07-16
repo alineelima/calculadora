@@ -12,6 +12,7 @@ build/
 gradle/
 .nb-gradle/
 .settings/
+.vscode
 
 
 #ignored extensions
