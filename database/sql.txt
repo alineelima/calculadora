@@ -1,0 +1,24 @@
+create database calculadora;
+
+use database calculadora;
+
+create table usuario (
+    nome varchar(50),
+    email varchar(50),
+    senha varchar(50),
+    primary key (email)
+);
+
+create table historico(
+    id int AUTO_INCREMENT,
+    nome varchar (50),
+    num1 varchar (50),
+    num2 varchar(50),
+    operacao varchar (50),
+    resultado varchar (50),
+    horario varchar (50),
+    PRIMARY KEY (id)
+);
+
+insert into usuario(nome, email, senha) values ('Aline', 'aline@teste.com', '123456');
+insert into usuario(nome, email, senha) values ('Teste', 'teste@teste.com', '123456');
