@@ -17,7 +17,7 @@ and open the template in the editor.
     </head>
     <body>
 
-        <h1>Historico</h1>
+        <h1 class="color">Historico</h1>
 
         <div class="container">
             <table id="t01">

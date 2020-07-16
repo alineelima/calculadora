@@ -16,7 +16,7 @@ and open the template in the editor.
         <script src="resources/js/calcular.js"></script>
     </head>
     <body>
-        <h1>Caluladora Online</h1>
+        <h1 class="color">Caluladora Online</h1>
         
         <div class="container">
 
@@ -51,11 +51,11 @@ and open the template in the editor.
                 <input type="button" onclick="isFloat('.')" value="." class="global">
                 <input type="button" onclick="resultado()" value="=" id="result" class="green global" disabled=true>
             </div>
-        </div>
 
-        <div>
-            <button onclick="historico()" >Historico</button>
-            <buttonhref="/calculadora/logout" >Sair</button>
+            <div>
+                <button onclick="historico()" class="global red">Historico</button>
+                <button onclick="window.location.href='/calculadora/logout'" class="global red">Sair</button> 
+            </div>
         </div>
     </body>
 </html>

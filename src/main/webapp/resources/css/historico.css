@@ -1,5 +1,10 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
+.color{
+    color: #87caf7;
+    text-align: center;
+}
+
 .container {
     padding: 16px;
 }
@@ -18,15 +23,15 @@ th, td {
 }
 
 table#t01 tr:nth-child(even) {
-    background-color: #eee;
+    background-color: rgb(255, 255, 255);
 }
 
 table#t01 tr:nth-child(odd) {
-   background-color: #fff;
+   background-color: rgb(139, 199, 255);
 }
 
 table#t01 th {
-    background-color: #dcefff;
+    background-color: #0489f5;
     color: #000000;
 }
 
