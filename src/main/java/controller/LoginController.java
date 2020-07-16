@@ -34,11 +34,11 @@ public class LoginController extends HttpServlet{
 			String senha = req.getParameter("senha");
 
 			UsuarioDAO usuarioDao = new UsuarioDAO();
-			String nome = usuarioDao.findUserByEmail(email,senha);
+			Usuario user = usuarioDao.findUserByEmail(email,senha);
 
-			if(nome != null && !nome.equals("")) {
+			if(user != null) {
 				HttpSession session = req.getSession();  
-				session.setAttribute("username", nome);
+				session.setAttribute("username", user.getNome());
 				resp.setContentType("text/html;charset=UTF-8");
         		resp.getWriter().write("Success Data");
 

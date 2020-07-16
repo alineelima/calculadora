@@ -55,7 +55,7 @@ and open the template in the editor.
 
         <div>
             <button onclick="historico()" >Historico</button>
-            <button onclick="historico()" >Sair</button>
+            <buttonhref="/calculadora/logout" >Sair</button>
         </div>
     </body>
 </html>

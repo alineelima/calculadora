@@ -21,15 +21,19 @@ and open the template in the editor.
 
         <div class="container">
             <table id="t01">
-                <tr>
-                <td>Jill realizou a operacao 2+2</td>
-                </tr>
-                <tr>
-                <td>Eve realizou a operacao 3x4</td>
-                </tr>
-                <tr>
-                <td>John realizou a operacao 9/3</td>
-                </tr>
+                <c:forEach items="${registros}" var="registro">
+                    <tr>
+                    <td>
+                        <c:out value="${registro.nome}" /> realizou a operacao 
+                        <c:out value="${registro.num1}"/>
+                        <c:out value="${registro.operacao}"/>
+                        <c:out value="${registro.num2}"/> = 
+                        <c:out value="${registro.resultado}"/> na data
+                        <c:out value="${registro.horario}"/>
+                        
+                    </td>
+                    </tr>
+                </c:forEach>
             </table>
         </div>
         <div>

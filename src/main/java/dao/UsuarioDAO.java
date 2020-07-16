@@ -25,10 +25,10 @@ public class UsuarioDAO {
         System.out.println("fim usuario dao");
     }
 
-    public String findUserByEmail(String email, String password){
+    public Usuario findUserByEmail(String email, String password){
         System.out.println("entrou no find by email");
 
-        Query query = em.createQuery("FROM usuario u where email=:email"); 
+        Query query = em.createQuery("FROM usuario u where u.email=:email"); 
         query.setParameter("email", email);
         List<Usuario> usuarios = query.getResultList();
         
@@ -38,11 +38,11 @@ public class UsuarioDAO {
         else{
             for (Usuario usuario: usuarios){
                 if (usuario.getSenha().equals(password)){
-                     System.out.println(usuario.getNome());
-                     return usuario.getNome();
+                     System.out.println(" NOME DO USUARIO" + usuario.getNome());
+                     return usuario;
                 }
             }
         }
-        return "";
+        return null;
     }
 }

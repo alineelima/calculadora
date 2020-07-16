@@ -75,10 +75,8 @@ function disableOp(val){
     }
     
 }
-
-function result(valor){
+function teste(valor){
     document.getElementById('display').value += valor;
-    limpar();
 }
 
 function resultado(){
@@ -89,7 +87,7 @@ function resultado(){
         success: function(response) {
             console.log(response);
             display("=");
-            result(response);
+            teste(response);
             //window.location.href = "http://localhost:8080/calculadora/calcular"
           },
           error: function (response) {

@@ -23,5 +23,20 @@ public class HistoricoDAO {
 
         System.out.println("fim historico dao");
     }
+
+    public List<Historico> listHistory(String nome){
+        Query query = em.createQuery("FROM historico h where h.nome=:nome"); 
+        query.setParameter("nome", nome);
+        List<Historico> registros = query.getResultList();
+        
+        if (registros.isEmpty()){
+            System.out.println("Lista vazia!");
+            return registros;
+        }
+        else{
+            return registros;
+        }
+
+    }
     
 }

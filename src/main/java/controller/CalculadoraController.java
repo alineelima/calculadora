@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.DateFormat;
+import java.util.Date;
 import dao.HistoricoDAO;
 import model.Historico;
 
@@ -32,7 +34,7 @@ public class CalculadoraController extends HttpServlet{
 			String nome = "";
 			HttpSession session = req.getSession(false);  
             if((session!=null) && ((String)session.getAttribute("username") != null)){   
-                nome = (String)session.getAttribute("username");
+				nome = (String)session.getAttribute("username");
 			}
 			
 			b = b.substring(1, b.length());
@@ -41,7 +43,10 @@ public class CalculadoraController extends HttpServlet{
 			historico.setNum1(a);
 			historico.setNum2(b);
 			historico.setOperacao(operacao);
+			Date d = new Date();
+			String data = DateFormat.getDateTimeInstance().format(d);
 			
+
 			Double num1 = Double.parseDouble(a);
 			Double num2 = Double.parseDouble(b);
 			Double resultado = 0.0;
@@ -79,6 +84,8 @@ public class CalculadoraController extends HttpServlet{
 			System.out.println("Resultado: " + resultado);
 
 			HistoricoDAO historicoDao = new HistoricoDAO();
+			historico.setHorario(data);
+			historico.setResultado(resultado.toString());
 			historicoDao.saveHistory(historico);
 			
 			resp.setContentType("text/html;charset=UTF-8");

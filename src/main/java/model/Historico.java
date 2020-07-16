@@ -27,6 +27,12 @@ public class Historico {
     @Column(name = "operacao")
     private String operacao;
 
+    @Column(name = "resultado")
+    private String resultado;
+
+    @Column(name = "horario")
+    private String horario;
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -57,5 +63,21 @@ public class Historico {
 
     public String getOperacao(){
         return this.operacao;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+    public String getResultado() {
+        return this.resultado;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getHorario() {
+        return this.horario;
     }
 }
