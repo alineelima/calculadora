@@ -10,13 +10,13 @@ and open the template in the editor.
 <html>
     <head>
         <title>Calculadora Online</title>
-        <meta charset="UTF-8">
+        <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
         <link rel="stylesheet" href="resources/css/calcular.css"/>
         <script src="resources/js/jquery-3.3.1.min.js"></script>
         <script src="resources/js/calcular.js"></script>
     </head>
     <body>
-        <h1 class="color">Caluladora Online</h1>
+        <h1 class="color">Calculadora Online</h1>
         
         <div class="container">
 
@@ -55,6 +55,9 @@ and open the template in the editor.
             <div>
                 <button onclick="historico()" class="global red">Historico</button>
                 <button onclick="window.location.href='/calculadora/logout'" class="global red">Sair</button> 
+            </div>
+            <div>
+                <p class='color'>Para realizar uma nova conta clique em DEL</p>
             </div>
         </div>
     </body>

@@ -21,13 +21,9 @@ public class UsuarioDAO {
         em.getTransaction().commit();
         em.close();
         emf.close();
-
-        System.out.println("fim usuario dao");
     }
 
     public Usuario findUserByEmail(String email, String password){
-        System.out.println("entrou no find by email");
-
         Query query = em.createQuery("FROM usuario u where u.email=:email"); 
         query.setParameter("email", email);
         List<Usuario> usuarios = query.getResultList();
@@ -37,12 +33,13 @@ public class UsuarioDAO {
         }
         else{
             for (Usuario usuario: usuarios){
-                if (usuario.getSenha().equals(password)){
-                     System.out.println(" NOME DO USUARIO" + usuario.getNome());
+                if (usuario.getSenha().equals(password) && usuario.getEmail().equals(email)){
+                     //System.out.println(" NOME DO USUARIO" + usuario.getNome());
                      return usuario;
                 }
             }
         }
+
         return null;
     }
 }

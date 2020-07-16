@@ -36,15 +36,15 @@ public class LoginController extends HttpServlet{
 			UsuarioDAO usuarioDao = new UsuarioDAO();
 			Usuario user = usuarioDao.findUserByEmail(email,senha);
 
-			if(user != null) {
+			if (user != null) {
 				HttpSession session = req.getSession();  
 				session.setAttribute("username", user.getNome());
-				resp.setContentType("text/html;charset=UTF-8");
-        		resp.getWriter().write("Success Data");
+				resp.setStatus(200);
+				resp.setContentType("text/html;charset=UTF-8");		
 
 			} else {
 				req.setAttribute("message", "Erro ao realizar login. Verifique email e senha e tente novamente");
-				req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
+				resp.setStatus(500);
 			}
 
 		} catch (Exception e) {

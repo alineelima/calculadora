@@ -78,7 +78,7 @@ function disableOp(val){
 function resultadoAPI(valor){
     limpar();
     document.getElementById('display').value += valor;
-    alert("Para realizar uma nova operação clique no botão Del da calculadora");
+    //alert("Para realizar uma nova operação clique no botão Del da calculadora");
 }
 
 function resultado(){
@@ -87,8 +87,7 @@ function resultado(){
         method: 'POST',
         data:{a:a, b:b, operacao:operacao},
         success: function(response) {
-            console.log(response);
-            //display("=");
+            //console.log(response);
             resultadoAPI(response);
             //window.location.href = "http://localhost:8080/calculadora/calcular"
           },
